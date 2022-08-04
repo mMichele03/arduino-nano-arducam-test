@@ -6,20 +6,11 @@
 #include <vl53lx_class.h>
 #include <arducam.h>
 
-#include <rust_lib.h>
-
-extern "C" void ffi_usb_serial_write(const char* buffer, size_t size) {
-  Serial.write(buffer, size);
-}
-
 void setup() {
   Serial.begin(115200);
 }
 
-int count = 0;
-
 void loop() {
-  count++;
-  print_tick(count);
+  Serial.write("ok", 2);
   sleep_ms(1000);
 }
